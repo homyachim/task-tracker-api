@@ -1,0 +1,7 @@
+rootProject.name = 'tasktracker'
+
+include 'auth'
+include 'task-manage'
+include 'notification-manage'
+include 'common-jpa'
+
