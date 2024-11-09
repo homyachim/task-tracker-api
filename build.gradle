@@ -7,15 +7,26 @@ plugins {
 group = 'com.khomel'
 version = '0.0.1-SNAPSHOT'
 
-repositories {
-	mavenCentral()
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
 }
 
-dependencies {
-	testImplementation platform('org.junit:junit-bom:5.10.0')
-	testImplementation 'org.junit.jupiter:junit-jupiter'
-}
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
 
-test {
-	useJUnitPlatform()
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		testImplementation platform('org.junit:junit-bom:5.10.0')
+		testImplementation 'org.junit.jupiter:junit-jupiter'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
 }
